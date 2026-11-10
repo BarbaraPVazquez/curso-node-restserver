@@ -61,11 +61,11 @@ export const usersPatch = (req, res = response) => {
 
 export const usersDelete = async (req, res = response) => {
   const { id } = req.params
+  //const uid = req.uid
   //De esta manera se pierde toda la información de usuario
   //const user = await User.findByIdAndDelete(id)
-
   const user = await User.findByIdAndUpdate(id, { status: false })
   res.json({
-    id
+    user
   })
 }
